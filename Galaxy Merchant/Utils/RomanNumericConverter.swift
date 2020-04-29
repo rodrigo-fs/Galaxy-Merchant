@@ -15,7 +15,8 @@ class RomanNumericConverter{
     private init() {
         //Private init turn this class a Singleton.
     }
-
+    ///Convert roman string to decimal Integer
+    ///- Returns: Value in decimal.
     func romanToNumeric(roman: String) -> Int{
         if validateRoman(roman: roman.uppercased()){
             let reversedRoman = String(roman.reversed()).uppercased()
@@ -33,12 +34,13 @@ class RomanNumericConverter{
         //TODO: Throw an error to invalid roman
         return -1
     }
-    
-    func processDecimal (decimal: Int, lastNumber: Int, lastDecimal: Int) -> Int{
+    ///Inner Logic to help romanToNumeric
+    private func processDecimal (decimal: Int, lastNumber: Int, lastDecimal: Int) -> Int{
         return lastNumber > decimal ? lastDecimal - decimal : lastDecimal + decimal
     }
-
-    func validateRoman(roman:String) -> Bool{
+    
+    ///Method that validate an roman String.
+    private func validateRoman(roman:String) -> Bool{
         let regex = "^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"
         return roman.range(of: regex, options: .regularExpression) != nil
     }

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+///Enum to represent errors on InputManager.
 enum InputManagerError: Error{
     case invalidEntry
 }

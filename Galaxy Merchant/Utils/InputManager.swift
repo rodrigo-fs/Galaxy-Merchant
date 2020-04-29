@@ -17,7 +17,11 @@ class InputManager{
     private init() {
         //Private init turn this class a Singleton.
     }
-    
+    /**
+         Method used to process entrys lines from file.
+         - Parameters:
+             - inputs: inputs from file.
+    */
     func formatEntrys(inputs:[String]){
         inputs.forEach({
             let text = $0.lowercased()
@@ -39,7 +43,12 @@ class InputManager{
             }
         })
     }
-    
+    /**
+         Method used when  is defined  an value roman numeric to an item from data.
+         - Parameters:
+             - item: item name.
+             - value: roman value.
+    */
     private func addValueData(item: String?, value: String?){
         if let item = item{
             if let value = value?.uppercased() {
@@ -47,7 +56,12 @@ class InputManager{
             }
         }
     }
-    
+    /**
+         Method used to store calculated credit value from item.
+         - Parameters:
+             - item: item name.
+             - value: calculated  value.
+    */
     private func addCreditsData(item: String?, value: Float?){
         if let item = item {
             if let value = value {
@@ -55,19 +69,35 @@ class InputManager{
             }
         }
     }
-    
+    /**
+         Method used to load an specific item value from data.
+         - Parameters:
+             - item: item name.
+         - Returns: Value in roman.
+    */
     private func getValueData(item: String) -> String?{
         return valuesData[item]
     }
     
+    /**
+         Method used to load an specific item credit from data.
+         - Parameters:
+             - item: item name.
+         - Returns: Value in decimal.
+    */
     private func getCreditData(item: String?) -> Float? {
         if let item = item {
             return creditsData[item]
         }
         return nil
     }
-
     
+    /**
+         Method used to process an credit operation.
+         - Parameters:
+             - items: items involved in credit operation.
+             - value: result involved in credit operation.
+    */
     private func processValuesData(items: [String], value: String){
         //TODO: Develop solution for n variables
         do{
@@ -75,7 +105,7 @@ class InputManager{
             let firsPart = Float(RomanNumericConverter.sharedInstance.romanToNumeric(roman: romanValue))
             if let secondPart = Float(value){
                 let total = secondPart/firsPart
-                addCreditData(item: items.last, value: total)
+                addCreditsData(item: items.last, value: total)
             }
         }
         catch{
@@ -83,12 +113,11 @@ class InputManager{
         }
     }
     
-    private func addCreditData(item: String?, value: Float){
-        if let item = item{
-            creditsData[item] = value
-        }
-    }
-    
+    /**
+         Method used to process an response operation.
+         - Parameters:
+             - question: complete question data.
+    */
     private func processResponseData(question:[String]){
         let isCredit = question.contains("créditos")
         var isValid = true
@@ -117,12 +146,23 @@ class InputManager{
         resultText = isValid ? products.reduce("", {return $0 + $1 + " "}) + resultText : resultText
         responsesData.append(resultText)
     }
-    
+    /**
+         Method used to get all response processed data to write in output file.
+         - Returns: text formatted to save.
+    */
     func getAllResponseFormattedData() -> String{
         responsesData.forEach({print ($0)})
         return responsesData.reduce(""){ $0 + $1 + "/n" }
     }
     
+    /**
+         Method used to assemble roman's value from credit's data or credit's question.
+         - Parameters:
+             - items: items involved in operation
+         - Throws: `InputManagerError.invalidEntry`
+                    if question is invalid.
+         - Returns: Roman Value.
+    */
     private func getFormattedRoman(items: [String]) throws -> String {
         var romanValue = ""
         for item in items {
