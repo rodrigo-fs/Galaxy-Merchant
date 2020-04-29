@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		57011EA024586F000053A0AA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57011E9F24586F000053A0AA /* main.swift */; };
+		57011EA824586F2E0053A0AA /* RomanNumericConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57011EA724586F2E0053A0AA /* RomanNumericConverter.swift */; };
+		570494472458B58400B9E080 /* InputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570494462458B58400B9E080 /* InputManager.swift */; };
+		5704944A2458CEB300B9E080 /* ImputManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570494492458CEB300B9E080 /* ImputManagerError.swift */; };
+		57587C2D2458873E00A1EBC3 /* FileOperationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57587C2C2458873E00A1EBC3 /* FileOperationsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		57011E9C24586F000053A0AA /* Galaxy Merchant */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Galaxy Merchant"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57011E9F24586F000053A0AA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		57011EA724586F2E0053A0AA /* RomanNumericConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanNumericConverter.swift; sourceTree = "<group>"; };
+		570494462458B58400B9E080 /* InputManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputManager.swift; sourceTree = "<group>"; };
+		570494492458CEB300B9E080 /* ImputManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImputManagerError.swift; sourceTree = "<group>"; };
+		57587C2C2458873E00A1EBC3 /* FileOperationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOperationsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +65,29 @@
 		57011E9E24586F000053A0AA /* Galaxy Merchant */ = {
 			isa = PBXGroup;
 			children = (
+				570494482458CE3100B9E080 /* Errors */,
+				57011EA624586F1A0053A0AA /* Utils */,
 				57011E9F24586F000053A0AA /* main.swift */,
 			);
 			path = "Galaxy Merchant";
+			sourceTree = "<group>";
+		};
+		57011EA624586F1A0053A0AA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				57011EA724586F2E0053A0AA /* RomanNumericConverter.swift */,
+				57587C2C2458873E00A1EBC3 /* FileOperationsManager.swift */,
+				570494462458B58400B9E080 /* InputManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		570494482458CE3100B9E080 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				570494492458CEB300B9E080 /* ImputManagerError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570494472458B58400B9E080 /* InputManager.swift in Sources */,
+				57587C2D2458873E00A1EBC3 /* FileOperationsManager.swift in Sources */,
+				5704944A2458CEB300B9E080 /* ImputManagerError.swift in Sources */,
+				57011EA824586F2E0053A0AA /* RomanNumericConverter.swift in Sources */,
 				57011EA024586F000053A0AA /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

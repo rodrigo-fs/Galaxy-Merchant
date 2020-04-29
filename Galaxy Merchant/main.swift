@@ -8,5 +8,8 @@
 
 import Foundation
 
-print("Hello, World!")
+var inputs = FileOperationsManager.sharedInstance.loadFile(type: .input)
+InputManager.sharedInstance.formatEntrys(inputs: inputs)
+var outputs = InputManager.sharedInstance.getAllResponseFormattedData()
+FileOperationsManager.sharedInstance.saveFile(text: outputs, type: .output)
 
